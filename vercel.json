@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "http://localhost:3000/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "http://localhost:3000/$1"
+    }
+  ],
+  "env": {
+    "API_KEY": "YOUR_API_KEY",
+    "DEBUG": "1"
+  }
+}
