@@ -1,0 +1,5 @@
+services:
+  openai:
+    apiKey: REPLACE_WITH_YOUR_OPENAI_API_KEY
+  elevenlabs:
+    apiKey: REPLACE_WITH_YOUR_ELEVENLABS_API_KEY
