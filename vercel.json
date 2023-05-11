@@ -1,22 +1,24 @@
 {
+  "version": 2,
   "builds": [
-    {
-      "src": "app.js",
-      "use": "@vercel/node"
-    }
+    { "src": "app/**", "use": "@vercel/node" },
+    { "src": "server/**", "use": "@vercel/node" }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "http://localhost:3000/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "http://localhost:3000/$1"
-    }
+    { "src": "/(.*)", "dest": "/server/src/index.ts" }
   ],
   "env": {
-    "API_KEY": "YOUR_API_KEY",
-    "DEBUG": "1"
+    "OPENAI_API_KEY": "@openai-api-key",
+    "ELEVENLABS_API_KEY": "@elevenlabs-api-key"
+  },
+  "envSecrets": {
+    "openai-api-key": {
+      "target": "ENV",
+      "from": "openaiApiKey"
+    },
+    "elevenlabs-api-key": {
+      "target": "ENV",
+      "from": "elevenlabsApiKey"
+    }
   }
 }
